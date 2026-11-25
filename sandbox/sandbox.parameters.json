@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "baseName": { "value": "ailzsbx" },
+    "flagPlatformLandingZone": { "value": false },
+    "deployPeering": { "value": false },
+    "vnetBaseAddress": { "value": "192.168.0.0" },
+    "vmSize": { "value": "Standard_B2as_v2" },
+    "vmPassword": { "value": "REPLACE_AT_DEPLOY_TIME" },
+    "enableDefenderForAI": { "value": true },
+    "enableDefenderForKeyVault": { "value": false },
+    "deployToggles": {
+      "value": {
+        "virtualNetwork": true,
+        "peNsg": true,
+        "agentNsg": true,
+        "keyVault": true,
+        "storageAccount": true,
+        "logAnalytics": true,
+        "appInsights": true,
+        "bastionHost": true,
+        "bastionNsg": true,
+        "jumpVm": true,
+        "jumpboxNsg": true,
+
+        "firewall": false,
+        "firewallPublicIp": false,
+        "applicationGateway": false,
+        "applicationGatewayNsg": false,
+        "applicationGatewayPublicIp": false,
+        "wafPolicy": false,
+        "apiManagement": false,
+        "apiManagementNsg": false,
+        "buildVm": false,
+        "devopsBuildAgentsNsg": false,
+        "containerApps": false,
+        "containerEnv": false,
+        "acaEnvironmentNsg": false,
+        "containerRegistry": false,
+        "cosmosDb": false,
+        "appConfig": false,
+        "groundingWithBingSearch": false
+      }
+    },
+    "tags": {
+      "value": {
+        "environment": "sandbox",
+        "purpose": "ai-poc",
+        "owner": "REPLACE_OWNER_EMAIL",
+        "costCentre": "REPLACE",
+        "expiryDate": "YYYY-MM-DD",
+        "dataClassification": "synthetic-or-masked-only"
+      }
+    }
+  }
+}

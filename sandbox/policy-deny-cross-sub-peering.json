@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "displayName": "Sandbox - Deny VNet peering to other subscriptions",
+    "mode": "All",
+    "description": "Keeps each sandbox subscription network-isolated (CAF sandbox guidance). Assign at the Sandbox management group.",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          { "field": "type", "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings" },
+          { "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id", "notContains": "[subscription().subscriptionId]" }
+        ]
+      },
+      "then": { "effect": "deny" }
+    }
+  }
+}

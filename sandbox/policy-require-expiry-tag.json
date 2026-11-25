@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "displayName": "Sandbox - Require expiryDate tag on resource groups",
+    "mode": "All",
+    "description": "Every sandbox resource group must declare an expiry date so it can be cleaned up.",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          { "field": "type", "equals": "Microsoft.Resources/subscriptions/resourceGroups" },
+          { "field": "tags['expiryDate']", "exists": "false" }
+        ]
+      },
+      "then": { "effect": "deny" }
+    }
+  }
+}
